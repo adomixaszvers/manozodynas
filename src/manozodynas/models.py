@@ -43,3 +43,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         "Returns the short name for the user."
         return self.first_name
+
+class Word(models.Model):
+    zodis = models.TextField()
+    
+    def __str__(self):
+        return self.zodis

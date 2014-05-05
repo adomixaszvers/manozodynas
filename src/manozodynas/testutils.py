@@ -1,5 +1,5 @@
 import urllib
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 import lxml.html
 from lxml.etree import XMLSyntaxError
@@ -52,7 +52,7 @@ class StatefulTesting(TestCase):
             assert content, "%s, content is empty" % url
             try:
                 self.state['html'] = lxml.html.fromstring(content)
-            except XMLSyntaxError, e:
+            except XMLSyntaxError as e:
                 r = [url]
                 r.append(unicode(e))
                 ln, pos = e.position
